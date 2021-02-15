@@ -16,7 +16,7 @@ public class ZadanieDomowe2 {
         }
 
         if (wiekInDouble != null) {
-            if (wiekInDouble > 18) {
+            if (wiekInDouble >= 18) {
                 System.out.println("Ok, dziękuję za zakupy");
             } else {
                 System.out.println("Niestety jesteś za młody");
