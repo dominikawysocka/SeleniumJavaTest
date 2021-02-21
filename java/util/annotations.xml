@@ -1,0 +1,5 @@
+<root>
+    <item name='java.util.ArrayList void rangeCheck(int)'>
+        <annotation name='java.lang.Deprecated'/>
+    </item>
+</root>
