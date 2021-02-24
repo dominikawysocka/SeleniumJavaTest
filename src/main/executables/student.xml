@@ -1,0 +1,23 @@
+<students>
+    <student>
+        <imie lang="en">John</imie>
+        <nazwisko class="red">Kowalski</nazwisko>
+        <nazwisko>Kowalski</nazwisko>
+        <kierunek>Geologia</kierunek>
+        <rok>2</rok>
+        <grupa>1</grupa>
+    </student>
+</students>
+
+<!--
+/students/student/imie - konkret ścieżka
+//imie - szukamy taki tag
+//students//imie // - wchodzę w students i szukam imienia
+//imie[text()='John']
+//kierunek[text()='Geologia']
+//nazwisko[@lang='en']
+//nazwisko[@class='red']
+//a - wszystkie linki w strukturze
+//*[text()='Kowalski'] - znajdz w całości element "Kowalski"
+
+-->
