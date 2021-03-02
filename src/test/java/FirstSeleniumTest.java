@@ -3,6 +3,7 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebDriver;
@@ -12,7 +13,12 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Set;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
+
 public class FirstSeleniumTest {
+
+    private WebDriver driver;
 
     @Test
     public void googleOpenTest() throws InterruptedException {
@@ -21,7 +27,7 @@ public class FirstSeleniumTest {
         System.setProperty("webdriver.chrome.driver", driverPath);
 
         // Dimension dimension = new Dimension(1000, 650);
-        WebDriver driver = new ChromeDriver();
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
 
         //driver.get("E://ProjektyzProgramowania//tutorialselenium//src//main//potrzebneMaterialy//Test.html");
@@ -147,9 +153,18 @@ public class FirstSeleniumTest {
         linkacz.click();
 
         String expectedTitle = "";
-       // System.out.println("tytuł: " + driver.getTitle());
-        Assert.assertEquals(driver.getTitle(),expectedTitle);
+        // System.out.println("tytuł: " + driver.getTitle());
+        Assert.assertEquals(driver.getTitle(), expectedTitle);
+        assertEquals(driver.getTitle(), expectedTitle);
+        assertTrue(driver.getTitle().equals("zla nazwa"), "tytulki rozne");
 
+
+
+    }
+
+    @AfterClass
+    public void tearDown() {
+        //System.out.println("dupa");
         driver.quit();
     }
 
