@@ -1,12 +1,11 @@
+import org.openqa.selenium.*;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.WebDriver;
 
 import java.sql.SQLOutput;
 import java.util.List;
@@ -16,19 +15,14 @@ import java.util.Set;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
-public class FirstSeleniumTest {
+public class FirstSeleniumTest extends KlasaBazowa {
 
-    private WebDriver driver;
+    //private WebDriver driver;
+
 
     @Test
-    public void googleOpenTest() throws InterruptedException {
+    public void googleOpenTest()  throws InterruptedException  {
 
-        String driverPath = "E://ProjektyzProgramowania//tutorialselenium//src//main//executables//drivers//chromedriver.exe";
-        System.setProperty("webdriver.chrome.driver", driverPath);
-
-        // Dimension dimension = new Dimension(1000, 650);
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
 
         //driver.get("E://ProjektyzProgramowania//tutorialselenium//src//main//potrzebneMaterialy//Test.html");
         driver.get("https://www.google.com/webhp?hl=pl&sa=X&ved=0ahUKEwiZpqGMj43vAhWl-ioKHbyJCCIQPAgI");
@@ -155,18 +149,35 @@ public class FirstSeleniumTest {
         String expectedTitle = "";
         // System.out.println("tytuł: " + driver.getTitle());
         Assert.assertEquals(driver.getTitle(), expectedTitle);
-        assertEquals(driver.getTitle(), expectedTitle);
-        assertTrue(driver.getTitle().equals("zla nazwa"), "tytulki rozne");
+        // assertEquals(driver.getTitle(), expectedTitle);
+        // assertTrue(driver.getTitle().equals("zla nazwa"), "tytulki rozne");
+
+
+    }
+
+
+    @Test
+    public void googleOpenTest2() throws InterruptedException {
+
+        driver.get("https://www.google.com");
+       // driver.switchTo().frame(0);
+        //WebElement adreeButton = driver.findElement(By.id("introAgreeButton"));
+       // adreeButton.click();
+        WebElement wpisywanka = driver.findElement(By.xpath("/html/body/div[1]/div[3]/form/div[2]/div[1]/div[1]/div/div[2]/input"));
+        wpisywanka.sendKeys("Marcinek");
+        WebElement szukaj = driver.findElement(By.xpath("/html/body/div[1]/div[3]/form/div[2]/div[1]/div[3]/center/input[1]"));
+        szukaj.sendKeys(Keys.ENTER);
+        WebElement linkacz = driver.findElement(By.xpath("//a[@href='http://marcinek.poznan.pl/']"));
+        linkacz.click();
+
+        String expectedTitle = "";
+        Assert.assertEquals(driver.getTitle(), expectedTitle);
 
 
 
     }
 
-    @AfterClass
-    public void tearDown() {
-        //System.out.println("dupa");
-        driver.quit();
-    }
+
 
     private void switchToNewWindow(final WebDriver driver, final String currentWindowName) {
 
