@@ -27,7 +27,7 @@ public class FirstSeleniumTest extends KlasaBazowa {
 
 
         //driver.get("E://ProjektyzProgramowania//tutorialselenium//src//main//potrzebneMaterialy//Test.html");
-        driver.get("https://www.google.com/webhp?hl=pl&sa=X&ved=0ahUKEwiZpqGMj43vAhWl-ioKHbyJCCIQPAgI");
+        driver.get("https://www.w3schools.com");
 //        WebElement firstNameInput = driver.findElement(By.id("fname"));
 //        WebElement name = driver.findElement(By.name("username"));
 //        WebElement linkTeskt = driver.findElement(By.linkText("Visit W3Schools.com!"));
@@ -154,6 +154,12 @@ public class FirstSeleniumTest extends KlasaBazowa {
 //        linkacz.click();
 
         WebElement tutorials = driver.findElement(By.id("navbtn_tutorials"));
+        Actions action = new Actions(driver);
+//        action.contextClick().build().perform(); //prawy przycisk myszy
+        WebElement agreeChoices = driver.findElement(By.id("accept-choices"));
+        agreeChoices.click();
+        action.moveToElement(tutorials).build().perform();
+
 
         String expectedTitle = "";
         // System.out.println("tytuł: " + driver.getTitle());
