@@ -27,7 +27,7 @@ public class FirstSeleniumTest extends KlasaBazowa {
 
 
         //driver.get("E://ProjektyzProgramowania//tutorialselenium//src//main//potrzebneMaterialy//Test.html");
-        driver.get("https://www.w3schools.com");
+        driver.get("https://demos.telerik.com/kendo-ui/dragdrop/index");
 //        WebElement firstNameInput = driver.findElement(By.id("fname"));
 //        WebElement name = driver.findElement(By.name("username"));
 //        WebElement linkTeskt = driver.findElement(By.linkText("Visit W3Schools.com!"));
@@ -153,17 +153,16 @@ public class FirstSeleniumTest extends KlasaBazowa {
 //        WebElement linkacz = driver.findElement(By.xpath("//a[@href='http://marcinek.poznan.pl/']"));
 //        linkacz.click();
 
-        WebElement tutorials = driver.findElement(By.id("navbtn_tutorials"));
-        Actions action = new Actions(driver);
 //        action.contextClick().build().perform(); //prawy przycisk myszy
-        WebElement agreeChoices = driver.findElement(By.id("accept-choices"));
-        agreeChoices.click();
-        action.moveToElement(tutorials).build().perform();
+       // action.moveToElement(tutorials).build().perform();
 
+        WebElement agreeCookies = driver.findElement(By.id("onetrust-accept-btn-handler"));
+        agreeCookies.click();
+        Actions action = new Actions(driver);
 
-        String expectedTitle = "";
+        //String expectedTitle = "";
         // System.out.println("tytuł: " + driver.getTitle());
-        Assert.assertEquals(driver.getTitle(), expectedTitle);
+       // Assert.assertEquals(driver.getTitle(), expectedTitle);
         // assertEquals(driver.getTitle(), expectedTitle);
         // assertTrue(driver.getTitle().equals("zla nazwa"), "tytulki rozne");
 
