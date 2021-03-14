@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 public abstract class KlasaBazowa {
 
-    protected WebDriver driver;
+    protected static WebDriver driver;
     //ustawienia początkowe
     @BeforeClass
     public void setup() {

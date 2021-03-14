@@ -1,5 +1,6 @@
 import org.openqa.selenium.*;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
@@ -7,6 +8,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import javax.swing.*;
 import java.sql.SQLOutput;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -21,7 +23,7 @@ public class FirstSeleniumTest extends KlasaBazowa {
 
 
     @Test
-    public void googleOpenTest()  throws InterruptedException  {
+    public void googleOpenTest() throws InterruptedException {
 
 
         //driver.get("E://ProjektyzProgramowania//tutorialselenium//src//main//potrzebneMaterialy//Test.html");
@@ -135,16 +137,23 @@ public class FirstSeleniumTest extends KlasaBazowa {
 //        driver.switchTo().window(currentWindowName);
 //        driver.findElement(By.name("username")).sendKeys("ss");
 
+//
+//        driver.switchTo().frame(0);
+//        WebElement adreeButton = driver.findElement(By.id("introAgreeButton"));
+//        adreeButton.click();
+//        WebElement wpisywanka = driver.findElement(By.xpath("/html/body/div[1]/div[3]/form/div[2]/div[1]/div[1]/div/div[2]/input"));
+//        JavascriptExecutor executor = (JavascriptExecutor) driver;
+//        Actions action = new Actions(driver);
+//        action.contextClick().build().perform(); //prawy przycisk myszy
+//        executor.executeScript("arguments[0].setAttribute('value', 'Marcinek')", wpisywanka);
+//       // wpisywanka.sendKeys("Marcinek");
+//        WebElement szukaj = driver.findElement(By.xpath("/html/body/div[1]/div[3]/form/div[2]/div[1]/div[3]/center/input[1]"));
+//        executor.executeScript("arguments[0].click();", szukaj);
+//       // szukaj.click();
+//        WebElement linkacz = driver.findElement(By.xpath("//a[@href='http://marcinek.poznan.pl/']"));
+//        linkacz.click();
 
-        driver.switchTo().frame(0);
-        WebElement adreeButton = driver.findElement(By.id("introAgreeButton"));
-        adreeButton.click();
-        WebElement wpisywanka = driver.findElement(By.xpath("/html/body/div[1]/div[3]/form/div[2]/div[1]/div[1]/div/div[2]/input"));
-        wpisywanka.sendKeys("Marcinek");
-        WebElement szukaj = driver.findElement(By.xpath("/html/body/div[1]/div[3]/form/div[2]/div[1]/div[3]/center/input[1]"));
-        szukaj.click();
-        WebElement linkacz = driver.findElement(By.xpath("//a[@href='http://marcinek.poznan.pl/']"));
-        linkacz.click();
+        WebElement tutorials = driver.findElement(By.id("navbtn_tutorials"));
 
         String expectedTitle = "";
         // System.out.println("tytuł: " + driver.getTitle());
@@ -160,9 +169,9 @@ public class FirstSeleniumTest extends KlasaBazowa {
     public void googleOpenTest2() throws InterruptedException {
 
         driver.get("https://www.google.com");
-       // driver.switchTo().frame(0);
+        // driver.switchTo().frame(0);
         //WebElement adreeButton = driver.findElement(By.id("introAgreeButton"));
-       // adreeButton.click();
+        // adreeButton.click();
         WebElement wpisywanka = driver.findElement(By.xpath("/html/body/div[1]/div[3]/form/div[2]/div[1]/div[1]/div/div[2]/input"));
         wpisywanka.sendKeys("Marcinek");
         WebElement szukaj = driver.findElement(By.xpath("/html/body/div[1]/div[3]/form/div[2]/div[1]/div[3]/center/input[1]"));
@@ -174,9 +183,7 @@ public class FirstSeleniumTest extends KlasaBazowa {
         Assert.assertEquals(driver.getTitle(), expectedTitle);
 
 
-
     }
-
 
 
     private void switchToNewWindow(final WebDriver driver, final String currentWindowName) {
