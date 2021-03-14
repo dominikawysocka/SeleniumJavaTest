@@ -23,7 +23,7 @@ public abstract class KlasaBazowa {
     @AfterClass
     public void tearDown() {
         //System.out.println("dupa");
-        driver.quit();
+        //driver.quit();
     }
 
 }

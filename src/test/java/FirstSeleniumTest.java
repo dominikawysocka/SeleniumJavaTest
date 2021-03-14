@@ -159,6 +159,8 @@ public class FirstSeleniumTest extends KlasaBazowa {
         WebElement agreeCookies = driver.findElement(By.id("onetrust-accept-btn-handler"));
         agreeCookies.click();
         Actions action = new Actions(driver);
+        Screenshot screen = new Screenshot(driver);
+        screen.takeScreenshot();
 
         //String expectedTitle = "";
         // System.out.println("tytuł: " + driver.getTitle());

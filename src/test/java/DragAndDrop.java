@@ -11,12 +11,12 @@ public class DragAndDrop extends KlasaBazowa {
         driver.get("https://demos.telerik.com/kendo-ui/dragdrop/index");
         WebElement agreeCookies = driver.findElement(By.id("onetrust-accept-btn-handler"));
         agreeCookies.click();
-
-
+        Screenshot screen = new Screenshot(driver);
+        screen.takeScreenshot();
         WebElement duzeKolko = driver.findElement(By.id("droptarget"));
         WebElement maleKolko = driver.findElement(By.id("draggable"));
         Actions drop = new Actions(driver);
-        drop.dragAndDrop(maleKolko,duzeKolko).build().perform();
+        drop.dragAndDrop(maleKolko, duzeKolko).build().perform();
 
     }
 
